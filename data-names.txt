@@ -46,3 +46,8 @@ Search
     location
     range
 
+Posts:
+    postTitle
+    //postAuthor //using userName
+    postDate
+    postStatus //published, reported, verified-waiting, erasing(waiting for being deleted)
