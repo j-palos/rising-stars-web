@@ -16,7 +16,7 @@ Bands/Artists:
 
 User:
     username
-    password
+    password //restricted length to 24 chars
 
 Fan: Inherit from User
     fanGenres
