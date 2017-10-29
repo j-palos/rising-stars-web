@@ -46,7 +46,7 @@
     <label for="schedule">Paste here</label>
     <textarea class="form-control" id="schedule" rows="3"></textarea>
         </div>
-  <button type="submit" class="btn btn-primary">Get Calendar</button>
+  <button type="submit" class="btn btn-primary" onclick="confirm()">Get Calendar</button>
 </form>  
 </div>
       </div>  
@@ -74,8 +74,10 @@ F	2:00pm- 4:00pm
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
       <script type="text/javascript">
+          function confirm(){
       var x = document.getElementById("schedule").value;
           alert(x);
+          }
       </script>
   </body>
 </html>
