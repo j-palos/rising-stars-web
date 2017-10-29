@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Hello, world!</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      
+      <style type="text/css">
+      
+         body {
+              
+              background: none;
+              
+          }
+          
+          .container {
+              
+              text-align: center;
+              margin-top: 100px;
+              width: 500px;
+              
+          }
+          
+          input {
+              
+              margin: 2px 0;
+              
+          }
+          
+      </style>
+  </head>
+  <body>
+    <div class="container" id="center">
+  <div class="row">
+        <div class="col-md-12">
+      <div class="jumbotron">
+          
+  <h1 class="display-3">Class Schedule Compiler</h1>
+  <p class="lead">Simply copy and paste your classlist table here to import to google calendar! </p>
+    <form>
+   <div class="form-group">
+    <label for="schedule">Paste here</label>
+    <textarea class="form-control" id="schedule" rows="3"></textarea>
+        </div>
+  <button type="submit" class="btn btn-primary">Get Calendar</button>
+</form>  
+</div>
+      </div>  
+        </div>
+</div>
+      
+<!--
+      Class Listing for
+Unique	Course	Title	Bldg	Room	Days	Time	Remarks
+51520	C S 429	COMP ORGANIZATN AND ARCH	GDC 
+GDC	2.216 
+4.302	MW 
+F	2:00pm- 4:00pm 
+9:00am-11:00am	
+56835	SDS 321	INTRO TO PROBABIL & STATISTICS	UTC	3.124	TTH	2:00pm- 3:30pm	
+04870	MAN 320F	FNDTNS OF MGMT & ORG BEHAVIOR	FAC	21	TTH	3:30pm- 5:00pm	
+03430	LEB 320F	FNDTNS OF BUSN LAW & ETHICS	GSB	2.124	TTH	12:30pm- 2:00pm	
+-->
+
+     
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+      <script type="text/javascript">
+      var x = document.getElementById("schedule").value;
+          alert(x);
+      </script>
+  </body>
+</html>
