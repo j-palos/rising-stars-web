@@ -1,0 +1,81 @@
+<html>
+  <body>
+    <div id='content'>
+      <h1>Events</h1>
+      <ul id='events'></ul>
+    </div>
+    <a href='#' id='authorize-button' onclick='handleAuthClick();'>Login</a>
+    
+    <script>
+	  <!-- API client ID information -->
+      var clientId = '439102755080-cibk8o9re48s510lpjrrb2dp95c6fcuo.apps.googleusercontent.com';
+      var apiKey = 'i9Mm2fQyooqMfS0_sTdBdF6K';
+      var scopes = 'https://www.googleapis.com/auth/calendar';
+	  <!-- Check that user logged in and handle authorization -->
+	  function handleClientLoad() {
+        gapi.client.setApiKey(apiKey);
+        window.setTimeout(checkAuth,1);
+        checkAuth();
+      }
+
+      function checkAuth() {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true}, handleAuthResult);
+      }
+
+      function handleAuthResult(authResult) {
+        var authorizeButton = document.getElementById('authorize-button');
+        if (authResult) {
+          authorizeButton.style.visibility = 'hidden';
+          convertCalendar (<!-- schedule_object -->);
+        } else {
+          authorizeButton.style.visibility = '';
+          authorizeButton.onclick = handleAuthClick;
+        }
+      }
+
+      function handleAuthClick(event) {
+        gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false}, handleAuthResult);
+        return false;
+      }
+	  <!-- Make Insert requests to Google Calendar API -->
+	  <!-- -->
+	  function convertCalendar (<!-- schedule_object -->) {
+        var event = {
+          'summary': 'Google I/O 2015',
+          'location': '800 Howard St., San Francisco, CA 94103',
+          'description': 'A chance to hear more about Google\'s developer products.',
+          'start': {
+            'dateTime': '2015-05-28T09:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+          },
+          'end': {
+            'dateTime': '2015-05-28T17:00:00-07:00',
+            'timeZone': 'America/Los_Angeles'
+          },
+          'recurrence': [
+            'RRULE:FREQ=WEEKLY;UNTIL=end.dateTime;BYDAY=("MO","WE")',
+			<!-- exclude holiday/closed day from the schedule -->
+			<!-- 'EXDATE': -->
+          ],
+          'reminders': {
+            'useDefault': false,
+            'overrides': [
+              {'method': 'email', 'minutes': 24 * 60},
+              {'method': 'popup', 'minutes': 10}
+            ]
+          }
+        };
+        
+        var request = gapi.client.calendar.events.insert({
+          'calendarId': 'primary',
+          'resource': event
+        });
+
+        request.execute(function(event) {
+          appendPre('Event created: ' + event.htmlLink);
+        });	    
+	  }
+    </script>
+    <script src="https://apis.google.com/js/client.js?onload=handleClientLoad"></script>
+  </body>
+</html>
